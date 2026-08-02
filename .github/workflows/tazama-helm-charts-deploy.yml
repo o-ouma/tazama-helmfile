@@ -18,11 +18,11 @@ jobs:
         with:
           token: ${{ secrets.GH_TOKEN }}
 
-      - name: Install Helmfile
-        run: |
-          HELMFILE_VERSION="v0.148.0"
-          wget "https://github.com/helmfile/helmfile/releases/download/${HELMFILE_VERSION}/helmfile_$(uname -s | tr '[:upper:]' '[:lower:]')_amd64" -O /usr/local/bin/helmfile
-          chmod +x /usr/local/bin/helmfile
+#      - name: Install Helmfile
+#        run: |
+#          HELMFILE_VERSION="v0.148.0"
+#          wget "https://github.com/helmfile/helmfile/releases/download/${HELMFILE_VERSION}/helmfile_$(uname -s | tr '[:upper:]' '[:lower:]')_amd64" -O /usr/local/bin/helmfile
+#          chmod +x /usr/local/bin/helmfile
 
       - name: Set up Kubectl
         uses: azure/setup-kubectl@v3
@@ -35,5 +35,15 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Deploy all charts
-        run: helmfile apply
+#      - name: Deploy all charts
+#        run: helmfile apply
+
+      - uses: helmfile/helmfile-action@v2.2.0
+        with:
+          helmfile-version: 'v0.150.0'
+          helm-version: 'v3.11.0'
+#          helm-plugins: >
+#            https://github.com/databus23/helm-diff@v3.1.3,
+#            https://github.com/jkroepke/helm-secrets@v4.2.2
+          helmfile-args: apply --environment prod
+          helmfile-auto-init: 'false'
