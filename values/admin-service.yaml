@@ -1,4 +1,4 @@
 replicaCount: 1
 
 # Controls whether the tms-service chart should be installed.
-installUserService: false
+installAdminService: false
