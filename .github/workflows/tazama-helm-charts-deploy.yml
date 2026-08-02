@@ -24,12 +24,12 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Deploy all charts
-        # Using the official helmfile-action is more robust than manual installation scripts.
-        # It handles setup of helm and helmfile, and runs the specified command.
-        uses: helmfile/helmfile-action@v2.3.1
-        with:
-          helmfile-version: 'v0.160.0'
-          # The helm-diff plugin is useful for seeing changes before they are applied.
-          helm-plugins: 'https://github.com/databus23/helm-diff@v3.8.1'
-          helmfile-args: 'apply'
+#      - name: Deploy all charts
+#        # Using the official helmfile-action is more robust than manual installation scripts.
+#        # It handles setup of helm and helmfile, and runs the specified command.
+#        uses: helmfile/helmfile-action@v2.3.1
+#        with:
+#          helmfile-version: 'v0.160.0'
+#          # The helm-diff plugin is useful for seeing changes before they are applied.
+#          helm-plugins: 'https://github.com/databus23/helm-diff@v3.8.1'
+#          helmfile-args: 'apply'
