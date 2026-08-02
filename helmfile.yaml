@@ -36,19 +36,19 @@ releases:
       - ./values/tms-service.yaml # Path to specific values for this service
 
   # Another microservice
-  - name: admin-service
-    namespace: tazama-admin
-    # When using OCI, the full URI must be specified in the chart field.
-    chart: oci://docker.io/booora/admin-service
-    version: 0.2.0
-    installed: {{ .Values.installAdminService | default true }}
-    values:
-      - ./values/admin-service.yaml
+#  - name: admin-service
+#    namespace: tazama-admin
+#    # When using OCI, the full URI must be specified in the chart field.
+#    chart: oci://docker.io/booora/admin-service
+#    version: 0.2.0
+#    installed: {{ .Values.installAdminService | default true }}
+#    values:
+#      - ./values/admin-service.yaml
 
   # A third-party chart, like Prometheus
-  - name: prometheus
-    namespace: monitoring
-    chart: prometheus-community/prometheus
-    version: 15.5.3
-    values:
-      - ./values/prometheus.yaml
+#  - name: prometheus
+#    namespace: monitoring
+#    chart: prometheus-community/prometheus
+#    version: 15.5.3
+#    values:
+#      - ./values/prometheus.yaml
