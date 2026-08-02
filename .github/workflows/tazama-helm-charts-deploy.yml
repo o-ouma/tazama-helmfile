@@ -30,6 +30,8 @@ jobs:
         uses: helmfile/helmfile-action@v2.3.1
         with:
           helmfile-version: 'v0.160.0'
+          # Pinning the Helm version to a known compatible release to avoid breaking changes.
+          helm-version: 'v3.13.3'
           # The helm-diff plugin is useful for seeing changes before they are applied.
           helm-plugins: 'https://github.com/databus23/helm-diff@v3.8.1'
           helmfile-args: 'apply'
