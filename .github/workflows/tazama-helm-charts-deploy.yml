@@ -18,11 +18,11 @@ jobs:
         with:
           token: ${{ secrets.GH_TOKEN }}
 
-      - name: Set up Helmfile
-        # Official helmfile/setup-helmfile-action for better support and stability.
-        uses: helmfile/setup-helmfile-action@v1
-        with:
-          helmfile-version: 0.148.0 # Pinning version for reproducible builds
+      - name: Install Helmfile
+        run: |
+          HELMFILE_VERSION="v0.148.0"
+          wget "https://github.com/helmfile/helmfile/releases/download/${HELMFILE_VERSION}/helmfile_$(uname -s | tr '[:upper:]' '[:lower:]')_amd64" -O /usr/local/bin/helmfile
+          chmod +x /usr/local/bin/helmfile
 
       - name: Set up Kubectl
         uses: azure/setup-kubectl@v3
