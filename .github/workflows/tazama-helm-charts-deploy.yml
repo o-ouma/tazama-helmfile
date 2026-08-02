@@ -13,10 +13,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Set up Kubectl
-        uses: azure/setup-kubectl@v3
-        with:
-          config-file: ${{ secrets.KUBE_CONFIG_DATA }}
+      - name: Set up Kubeconfig
+        # The helmfile-action does not automatically use the KUBECONFIG env var set by azure/setup-kubectl.
+        # To ensure helmfile can connect to the cluster, we must place the kubeconfig in the default location.
+        # The secret is base64 encoded, so it must be decoded before use.
+        run: |
+          mkdir -p ~/.kube
+          echo "${{ secrets.KUBE_CONFIG_DATA }}" | base64 --decode > ~/.kube/config
 
       - name: Login to OCI Registry (Docker Hub)
         uses: docker/login-action@v2
