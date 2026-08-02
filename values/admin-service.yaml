@@ -1,2 +1,2 @@
 # Controls whether the tms-service chart should be installed.
-installAdminService: false
+installUserService: false

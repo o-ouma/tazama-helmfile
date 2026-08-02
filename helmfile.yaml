@@ -39,7 +39,7 @@ releases:
     namespace: users
     chart: booora/user-service
     version: 1.2.3
-    installed: { { .Values.installAdminService | default true } }
+    installed: {{ .Values.installUserService | default true }}
     values:
       - ./values/user-service.yaml
 
