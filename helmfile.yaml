@@ -1,9 +1,5 @@
 # Define the repositories where your charts are stored.
-# In your case, it's an OCI registry on Docker Hub.
 repositories:
-  - name: booora
-    url: oci://docker.io/booora
-
   - name: prometheus-community
     url: https://prometheus-community.github.io/helm-charts
 
@@ -30,7 +26,8 @@ releases:
   # The TMS service from your current project
   - name: tms-service
     namespace: processor
-    chart: booora/tms-service
+    # When using OCI, the full URI must be specified in the chart field.
+    chart: oci://docker.io/booora/tms-service
     version: 0.1.0 # Pin the chart version for consistency
     # Conditionally install this chart. The installation can be controlled by setting
     # 'installTmsService' in the values. By default, it's set to 'true'.
@@ -41,7 +38,8 @@ releases:
   # Another microservice
   - name: admin-service
     namespace: tazama-admin
-    chart: booora/admin-service
+    # When using OCI, the full URI must be specified in the chart field.
+    chart: oci://docker.io/booora/admin-service
     version: 0.2.0
     installed: {{ .Values.installAdminService | default true }}
     values:
