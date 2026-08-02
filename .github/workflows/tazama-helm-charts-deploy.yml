@@ -15,9 +15,14 @@ jobs:
 
       - name: Set up Helm
         uses: azure/setup-helm@v3
+        with:
+          token: ${{ secrets.GH_TOKEN }}
 
       - name: Set up Helmfile
-        uses: mamezou-tech/setup-helmfile@v1.2.0
+        # Official helmfile/setup-helmfile-action for better support and stability.
+        uses: helmfile/setup-helmfile-action@v1
+        with:
+          helmfile-version: 0.148.0 # Pinning version for reproducible builds
 
       - name: Set up Kubectl
         uses: azure/setup-kubectl@v3
