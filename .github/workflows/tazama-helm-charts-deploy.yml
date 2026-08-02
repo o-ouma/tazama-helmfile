@@ -20,8 +20,10 @@ jobs:
 
       - name: Install Helmfile
         run: |
-          HELMFILE_VERSION="v1.7.2"
-          wget "https://github.com/helmfile/helmfile/releases/download/${HELMFILE_VERSION}/helmfile_$(uname -s | tr '[:upper:]' '[:lower:]')_amd64" -O /usr/local/bin/helmfile
+          # Using a recent, valid version of Helmfile.
+          HELMFILE_VERSION="v0.160.0"
+          # Correctly construct the asset filename, which includes the version number (without the 'v' prefix).
+          wget "https://github.com/helmfile/helmfile/releases/download/${HELMFILE_VERSION}/helmfile_${HELMFILE_VERSION#v}_$(uname -s | tr '[:upper:]' '[:lower:]')_amd64" -O /usr/local/bin/helmfile
           chmod +x /usr/local/bin/helmfile
 
       - name: Set up Kubectl
