@@ -1,0 +1,11 @@
+# values/postgresql.yaml
+# Default values for postgresql.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# Example of how to set the PostgreSQL password.
+# It's recommended to use a secret management system for production.
+auth:
+  username: tazama
+  password: "tazama-password"
+  database: tazama_db

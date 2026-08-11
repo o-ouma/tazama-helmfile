@@ -11,10 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
 
       - name: Set up Kubeconfig
-        # The helmfile-action does not automatically use the KUBECONFIG env var set by azure/setup-kubectl.
         # To ensure helmfile can connect to the cluster, we must place the kubeconfig in the default location.
         # The secret is base64 encoded, so it must be decoded before use.
         run: |
@@ -22,13 +21,13 @@ jobs:
           echo "${{ secrets.KUBE_CONFIG_DATA }}" | base64 --decode > ~/.kube/config
 
       - name: Login to OCI Registry (Docker Hub)
-        uses: docker/login-action@v2
+        uses: docker/login-action@v3
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Deploy all charts
-        # Using the official helmfile-action is more robust than manual installation scripts.
+        # Using the official helmfile-action action.
         # It handles setup of helm and helmfile, and runs the specified command.
         uses: helmfile/helmfile-action@v2.3.1
         with:

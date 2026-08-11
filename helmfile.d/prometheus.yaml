@@ -1,0 +1,9 @@
+# helmfile.d/prometheus.yaml
+#releases:
+#  # A third-party chart, like Prometheus
+#  - name: prometheus
+#    namespace: monitoring
+#    chart: prometheus-community/prometheus
+#    version: 15.5.3
+#    values:
+#      - ../values/prometheus.yaml
