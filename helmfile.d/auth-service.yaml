@@ -6,7 +6,7 @@ releases:
     # When using OCI, the full URI must be specified in the chart field.
     chart: oci://docker.io/booora/auth-service-helm
     version: 4.0.0
-    installed: {{ .Values.auth-service.installAuthService | default true }}
+    installed: {{ .Values.authService.installAuthService | default true }}
     values:
       - ../values/auth-service.yaml
     needs:
