@@ -6,7 +6,7 @@ releases:
     # When using OCI, the full URI must be specified in the chart field.
     chart: oci://docker.io/booora/admin-service-helm
     version: 4.0.0
-    installed: {{ index .Values "admin-service" "installAdminService" | default true }}
+    installed: {{ if hasKey .Values "admin-service" }}{{ index .Values "admin-service" "installAdminService" | default true }}{{ else }}true{{ end }}
     values:
       - ../values/admin-service.yaml
 #    needs:
