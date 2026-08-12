@@ -1,9 +1,0 @@
-# helmfile.d/postgresql.yaml
-#releases:
-#  # PostgreSQL database
-#  - name: postgresql
-#    namespace: tazama-admin
-#    chart: bitnami/postgresql
-#    version: 11.9.13
-#    values:
-#      - ../values/postgresql.yaml
