@@ -4,10 +4,10 @@ releases:
   - name: tms-service
     namespace: processor
     # When using OCI, the full URI must be specified in the chart field.
-    chart: oci://docker.io/booora/tms-service
+    chart: oci://docker.io/booora/tms-service-helm
     version: 4.0.0 # Pin the chart version for consistency
     # Conditionally install this chart. The installation can be controlled by setting
     # 'installTmsService' in the values. By default, it's set to 'true'.
-    installed: {{ .Values.installTmsService | default true }}
+    installed: {{ .Values.tms-service.installTmsService | default true }}
     values:
       - ../values/tms-service.yaml # Path to specific values for this service

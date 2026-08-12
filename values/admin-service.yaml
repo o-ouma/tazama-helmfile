@@ -1,5 +1,5 @@
 # Controls whether the tms-service chart should be installed.
-installAdminService: false
+installAdminService: true
 
 # Default values for admin-service.
 # This is a YAML-formatted file.
