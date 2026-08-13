@@ -1,0 +1,9 @@
+# helmfile.d/nats.yaml
+releases:
+  - name: nats
+    namespace: processor
+    chart: nats/nats
+    version: 2.14.4
+    installed: {{ if hasKey .Values "installNats" }}{{ .Values.installNats | default true }}{{ else }}true{{ end }}
+    values:
+      - ../values/nats.yaml

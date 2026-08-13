@@ -1,0 +1,9 @@
+# helmfile.d/postgresql.yaml
+releases:
+  - name: postgresql
+    namespace: processor
+    chart: postgresql/postgres
+    version: 1.6.7
+    installed: {{ if hasKey .Values "installPostgresql" }}{{ .Values.installPostgresql | default true }}{{ else }}true{{ end }}
+    values:
+      - ../values/postgresql.yaml

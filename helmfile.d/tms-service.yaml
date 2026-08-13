@@ -10,4 +10,8 @@ releases:
     # 'installTmsService' in the values. By default, it's set to 'true'.
     installed: {{ if hasKey .Values "tms-service" }}{{ index .Values "tms-service" "installTmsService" | default true }}{{ else }}true{{ end }}
     values:
-      - ../values/tms-service.yaml # Path to specific values for this service
+      - ../values/tms-service.yaml
+    needs:
+      - postgresql
+      - nats
+      - valkey

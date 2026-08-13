@@ -2,14 +2,21 @@
 repositories:
   - name: prometheus-community
     url: https://prometheus-community.github.io/helm-charts
-  - name: bitnami
-    url: https://charts.bitnami.com/bitnami
+  - name: postgresql
+    url: https://groundhog2k.github.io/helm-charts/
+  - name: valkey
+    url: https://valkey.io/valkey-helm
+  - name: nats
+    url: https://nats-io.github.io/k8s/helm/charts/
 
 # Load values files at the top level to make them available for templating.
 values:
   - ./values/tms-service.yaml
   - ./values/admin-service.yaml
   - ./values/auth-service.yaml
+  - ./values/valkey.yaml
+  - ./values/nats.yaml
+  - ./values/postgresql.yaml
 
 # Set default Helm options for all releases.
 # These can be overridden on a per-release basis if needed.
