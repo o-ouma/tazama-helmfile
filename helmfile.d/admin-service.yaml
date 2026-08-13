@@ -9,7 +9,3 @@ releases:
     installed: {{ if hasKey .Values "admin-service" }}{{ index .Values "admin-service" "installAdminService" | default true }}{{ else }}true{{ end }}
     values:
       - ../values/admin-service.yaml
-    needs:
-      - postgresql
-      - valkey
-      - nats
