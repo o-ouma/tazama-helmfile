@@ -1,4 +1,8 @@
 # helmfile.d/valkey.yaml
+repositories:
+  - name: valkey
+    url: https://valkey.io/valkey-helm
+
 releases:
   - name: valkey
     namespace: processor

@@ -1,4 +1,8 @@
 # helmfile.d/nats.yaml
+repositories:
+  - name: nats
+    url: https://nats-io.github.io/k8s/helm/charts/
+
 releases:
   - name: nats
     namespace: processor
