@@ -1,4 +1,4 @@
-# helmfile.d/postgresql.yaml
+# helmfile.d/postgresql-values.yaml
 repositories:
   - name: postgresql
     url: https://groundhog2k.github.io/helm-charts/
@@ -10,4 +10,4 @@ releases:
     version: 1.6.7
     installed: {{ if hasKey .Values "installPostgresql" }}{{ .Values.installPostgresql | default true }}{{ else }}true{{ end }}
     values:
-      - ../values/postgresql.yaml
+      - ../values/postgresql-values.yaml

@@ -1,4 +1,4 @@
-# helmfile.d/admin-service.yaml
+# helmfile.d/admin-service-values.yaml
 releases:
   # Another microservice
   - name: auth-service
@@ -8,6 +8,6 @@ releases:
     version: 4.0.0
     installed: {{ if hasKey .Values "auth-service" }}{{ index .Values "auth-service" "installAuthService" | default true }}{{ else }}true{{ end }}
     values:
-      - ../values/auth-service.yaml
+      - ../values/auth-service-values.yaml
 #    needs:
 #      - postgresql

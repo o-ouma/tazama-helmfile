@@ -1,4 +1,4 @@
-# helmfile.d/valkey.yaml
+# helmfile.d/valkey-values.yaml
 repositories:
   - name: valkey
     url: https://valkey.io/valkey-helm
@@ -10,4 +10,4 @@ releases:
     version: 0.11.0
     installed: {{ if hasKey .Values "installValkey" }}{{ .Values.installValkey | default true }}{{ else }}true{{ end }}
     values:
-      - ../values/valkey.yaml
+      - ../values/valkey-values.yaml

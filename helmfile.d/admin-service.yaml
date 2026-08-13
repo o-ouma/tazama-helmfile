@@ -1,4 +1,4 @@
-# helmfile.d/admin-service.yaml
+# helmfile.d/admin-service-values.yaml
 releases:
   # Another microservice
   - name: admin-service
@@ -8,4 +8,4 @@ releases:
     version: 4.0.0
     installed: {{ if hasKey .Values "admin-service" }}{{ index .Values "admin-service" "installAdminService" | default true }}{{ else }}true{{ end }}
     values:
-      - ../values/admin-service.yaml
+      - ../values/admin-service-values.yaml
