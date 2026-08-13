@@ -15,10 +15,10 @@ settings:
     value: postgres-password
   authMethod: scram-sha-256
 
-# Create the application database and user on first initialization.
+# Create the primary application database and user on first initialization.
 userDatabase:
   name:
-    value: tazama_db
+    value: event_history
   user:
     value: tazama
   password:
@@ -58,17 +58,23 @@ customScripts:
     }
 
     create_role admin adminPassword
-    create_role reporting reportingPassword
-    create_database event_history tazama
     create_database raw_history tazama
     create_database configuration admin
-    create_database simulation admin
 
-    "${psql_admin[@]}" -v ON_ERROR_STOP=1 <<'SQL'
-    GRANT CONNECT ON DATABASE tazama_db TO reporting;
-    GRANT CONNECT ON DATABASE configuration TO reporting;
-    GRANT CONNECT ON DATABASE simulation TO reporting;
+    for database in event_history raw_history; do
+      psql_database=(psql --username "$POSTGRES_USER" --dbname "$database" --no-password)
+      "${psql_database[@]}" -v ON_ERROR_STOP=1 <<'SQL'
+    GRANT CONNECT ON DATABASE event_history TO admin;
+    GRANT CONNECT ON DATABASE raw_history TO admin;
+    GRANT USAGE, CREATE ON SCHEMA public TO admin;
+    GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO admin;
+    GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO admin;
+    ALTER DEFAULT PRIVILEGES FOR ROLE tazama IN SCHEMA public
+      GRANT ALL PRIVILEGES ON TABLES TO admin;
+    ALTER DEFAULT PRIVILEGES FOR ROLE tazama IN SCHEMA public
+      GRANT ALL PRIVILEGES ON SEQUENCES TO admin;
     SQL
+    done
 
 storage:
   requestedSize: 1Gi
