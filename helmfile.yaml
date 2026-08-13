@@ -23,6 +23,7 @@ helmDefaults:
 # Load infrastructure before the services that depend on it. Cross-file
 # `needs` references are not resolved between separate sub-Helmfiles.
 helmfiles:
+  - helmfile.d/cert-manager.yaml
   - helmfile.d/postgresql.yaml
   - helmfile.d/valkey.yaml
   - helmfile.d/nats.yaml
