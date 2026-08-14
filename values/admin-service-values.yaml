@@ -174,7 +174,7 @@ admin-service:
     SIMULATION_DATABASE_PASSWORD: "adminPassword"
     SIMULATION_DATABASE_HOST: "postgresql.processor.svc.cluster.local"
     REDIS_DATABASE: "0"
-    REDIS_AUTH: "tazama-valkey-password"
+    REDIS_AUTH: "tazamaValkey"
     REDIS_SERVERS: "valkey.processor.svc.cluster.local"
     REDIS_IS_CLUSTER: ""
     DISTRIBUTED_CACHETTL: "300"

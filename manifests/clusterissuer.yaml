@@ -4,7 +4,7 @@ metadata:
   name: letsencrypt-pesalink-ke
 spec:
   acme:
-    email: admin@example.com
+    email: o.ouma8@example.com
     server: https://acme-v02.api.letsencrypt.org/directory
     privateKeySecretRef:
       name: letsencrypt-pesalink-ke-account-key

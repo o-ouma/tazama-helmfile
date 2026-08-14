@@ -3,6 +3,7 @@ values:
   - ./values/tms-service-values.yaml
   - ./values/admin-service-values.yaml
   - ./values/auth-service-values.yaml
+  - ./values/nginx-ingress-values.yaml
   - ./values/valkey-values.yaml
   - ./values/nats-values.yaml
   - ./values/postgresql-values.yaml
@@ -24,6 +25,7 @@ helmDefaults:
 # `needs` references are not resolved between separate sub-Helmfiles.
 helmfiles:
   - helmfile.d/cert-manager.yaml
+  - helmfile.d/nginx-ingress.yaml
   - helmfile.d/postgresql.yaml
   - helmfile.d/valkey.yaml
   - helmfile.d/nats.yaml
