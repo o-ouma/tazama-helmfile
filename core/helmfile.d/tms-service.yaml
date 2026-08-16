@@ -1,4 +1,4 @@
-# helmfile.d/rule-901-service-values.yaml
+# helmfile.d/tms-service.yaml
 releases:
   # The TMS service from your current project
   - name: tms-service
@@ -8,7 +8,6 @@ releases:
     version: 4.0.0 # Pin the chart version for consistency
     # Conditionally install this chart. The installation can be controlled by setting
     # 'installTmsService' in the values. By default, it's set to 'true'.
-#    installed: {{ if hasKey .Values "tms-service" }}{{ index .Values "tms-service" "installTmsService" | default true }}{{ else }}true{{ end }}
     installed: {{ if hasKey .Values "installTmsService" }}{{ .Values.installTmsService | default true }}{{ else }}true{{ end }}
     values:
-      - ../values/rule-901-service-values.yaml
+      - ../values/tms-service-values.yaml
