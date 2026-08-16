@@ -1,4 +1,4 @@
-# helmfile.d/cms-service-values.yaml
+# helmfile.d/tms-service-values.yaml
 releases:
   # The TMS service from your current project
   - name: tms-service
@@ -11,4 +11,4 @@ releases:
 #    installed: {{ if hasKey .Values "tms-service" }}{{ index .Values "tms-service" "installTmsService" | default true }}{{ else }}true{{ end }}
     installed: {{ if hasKey .Values "installTmsService" }}{{ .Values.installTmsService | default true }}{{ else }}true{{ end }}
     values:
-      - ../values/cms-service-values.yaml
+      - ../values/tms-service-values.yaml
