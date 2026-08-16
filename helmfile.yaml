@@ -3,13 +3,10 @@ values:
   - ./auxiliary/values/*.yaml
   - ./core/values/*.yaml
 
-#  - ./values/tms-service-values.yaml
-#  - ./values/admin-service-values.yaml
+#  - ./values/rule-901-service-values.yaml
 #  - ./values/auth-service-values.yaml
 #  - ./values/batch-ppa-values.yaml
 #  - ./values/nginx-ingress-values.yaml
-#  - ./values/valkey-values.yaml
-#  - ./values/nats-values.yaml
 #  - ./values/postgresql-values.yaml
 #  - ./values/cert-manager-values.yaml
 
@@ -32,13 +29,8 @@ helmfiles:
   - auxiliary/helmfile.d/*.yaml
   - core/helmfile.d/*.yaml
 
-
 #  - helmfile.d/cert-manager.yaml
 #  - helmfile.d/nginx-ingress.yaml
 #  - helmfile.d/postgresql.yaml
-#  - helmfile.d/valkey.yaml
-#  - helmfile.d/nats.yaml
-#  - helmfile.d/cms-service.yaml
-#  - helmfile.d/admin-service.yaml
 #  - helmfile.d/auth-service.yaml
 #  - helmfile.d/batch-ppa.yaml
