@@ -1,4 +1,4 @@
-name: Deploy All Services
+name: Deploy Tazama Services
 
 on:
   push:
