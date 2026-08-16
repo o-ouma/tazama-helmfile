@@ -8,6 +8,7 @@ releases:
     version: 4.0.0 # Pin the chart version for consistency
     # Conditionally install this chart. The installation can be controlled by setting
     # 'installTmsService' in the values. By default, it's set to 'true'.
-    installed: {{ if hasKey .Values "installTmsService" }}{{ .Values.installTmsService | default true }}{{ else }}true{{ end }}
+#    installed: {{ if hasKey .Values "installTmsService" }}{{ .Values.installTmsService | default true }}{{ else }}true{{ end }}
+    installed: 'false'
     values:
       - ../values/tms-service-values.yaml
