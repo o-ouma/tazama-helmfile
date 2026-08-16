@@ -19,4 +19,4 @@ releases:
         args:
           - apply
           - --filename
-          - ./manifests/clusterissuer.yaml
+          - ../manifests/clusterissuer.yaml
