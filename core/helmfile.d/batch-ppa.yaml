@@ -1,6 +1,5 @@
 # helmfile.d/batch-ppa.yaml
 releases:
-  # Another microservice
   - name: batch-ppa
     namespace: processor
     # When using OCI, the full URI must be specified in the chart field.

@@ -123,7 +123,7 @@ affinity: {}
 env:
   NPM_CONFIG_LOGLEVEL: "warn"
   mode: "http"
-  upstream_url: "http://127.0.0.1:3000"
+  upstream_url: "http://0.0.0.0:3000"
   exec_timeout: "10s"
   write_timeout: "15s"
   read_timeout: "15s"
@@ -138,8 +138,8 @@ env:
   CERT_PATH_PUBLIC: ""
   REDIS_DATABASE: "0"
   REDIS_AUTH: ""
-  REDIS_SERVERS: '[{"host":"127.0.0.1", "port":6379}]'
-  REDIS_IS_CLUSTER: "false"
+  REDIS_SERVERS: '[{"host":"valkey.processor.svc.cluster.local", "port":6379}]'
+  REDIS_IS_CLUSTER: "true"
   DISTRIBUTED_CACHETTL: "300"
   DISTRIBUTED_CACHE_ENABLED: "true"
   PSEUDONYMS_DATABASE: "pseudonyms"
