@@ -1,0 +1,14 @@
+# helmfile.d/cms-service-values.yaml
+releases:
+  # The TMS service from your current project
+  - name: tms-service
+    namespace: processor
+    # When using OCI, the full URI must be specified in the chart field.
+    chart: oci://docker.io/booora/tms-service-helm
+    version: 4.0.0 # Pin the chart version for consistency
+    # Conditionally install this chart. The installation can be controlled by setting
+    # 'installTmsService' in the values. By default, it's set to 'true'.
+#    installed: {{ if hasKey .Values "tms-service" }}{{ index .Values "tms-service" "installTmsService" | default true }}{{ else }}true{{ end }}
+    installed: {{ if hasKey .Values "installTmsService" }}{{ .Values.installTmsService | default true }}{{ else }}true{{ end }}
+    values:
+      - ../values/cms-service-values.yaml

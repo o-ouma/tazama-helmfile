@@ -1,0 +1,5 @@
+.idea
+new.sh
+./helmfile.d/
+./values
+./manifests
