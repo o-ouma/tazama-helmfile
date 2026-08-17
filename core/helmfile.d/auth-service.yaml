@@ -7,6 +7,6 @@ releases:
     chart: oci://docker.io/booora/auth-service-helm
     version: 4.0.0
 #    installed: {{ if hasKey .Values "auth-service" }}{{ index .Values "auth-service" "installAuthService" | default true }}{{ else }}true{{ end }}
-    installed: {{ if hasKey .Values "installAuthService" }}{{ .Values.installAuthService | default true }}{{ else }}true{{ end }}
+    installed: {{ if hasKey .Values "installAuthService" }}{{ .Values.installAuthService }}{{ else }}true{{ end }}
     values:
       - ../values/auth-service-values.yaml

@@ -7,6 +7,6 @@ releases:
     chart: oci://docker.io/booora/admin-service-helm
     version: 4.0.0
 #    installed: {{ if hasKey .Values "admin-service" }}{{ index .Values "admin-service" "installAdminService" | default true }}{{ else }}true{{ end }}
-    installed: {{ if hasKey .Values "installAdminService" }}{{ .Values.installAdminService | default true }}{{ else }}true{{ end }}
+    installed: {{ if hasKey .Values "installAdminService" }}{{ .Values.installAdminService }}{{ else }}true{{ end }}
     values:
       - ../values/admin-service-values.yaml

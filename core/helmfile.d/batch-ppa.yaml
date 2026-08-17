@@ -5,6 +5,7 @@ releases:
     # When using OCI, the full URI must be specified in the chart field.
     chart: oci://docker.io/booora/batch-ppa-helm
     version: 4.0.0
-    installed: {{ if hasKey .Values "installBatchPPA" }}{{ .Values.installBatchPPA | default true }}{{ else }}true{{ end }}
+#    installed: {{ if hasKey .Values "installBatchPPA" }}{{ .Values.installBatchPPA | default true }}{{ else }}true{{ end }}
+    installed: {{ if hasKey .Values "installBatchPPA" }}{{ .Values.installBatchPPA }}{{ else }}true{{ end }}
     values:
       - ../values/batch-ppa-values.yaml
