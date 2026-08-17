@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: Apache-2.0
 
-name: Deploy Tazama Services Helm Charts
+name: Sync Tazama Services Helm Charts
 
 on:
   workflow_dispatch:
@@ -29,7 +29,7 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Deploy Tazama charts
+      - name: Sync Tazama charts
         # Using the official helmfile-action action.
         # It handles setup of helm and helmfile, and runs the specified command.
 #        uses: helmfile/helmfile-action@v2.3.1
