@@ -39,4 +39,4 @@ jobs:
           helm-version: 'v3.13.3'
           # The helm-diff plugin is useful for seeing changes before they are applied.
           helm-plugins: 'https://github.com/databus23/helm-diff@629d13ca28b4ee5abb55401dc635631b2a77ed61'
-          helmfile-args: '--file helmfile.yaml destroy --purge'
+          helmfile-args: '--file helmfile.yaml destroy'
