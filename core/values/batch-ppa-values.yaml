@@ -1,4 +1,4 @@
-installBatchPPA: true
+installBatchPPA: false
 
 replicaCount: 1
 
