@@ -61,9 +61,6 @@
 name: Deploy Tazama Services
 
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
 
 jobs:

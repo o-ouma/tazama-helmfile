@@ -1,5 +1,6 @@
 # Load values files at the top level to make them available for templating.
 values:
+  - ./datastore/values/*.yaml
   - ./auxiliary/values/*.yaml
   - ./core/values/*.yaml
 
@@ -26,6 +27,7 @@ helmDefaults:
 # Load infrastructure before the services that depend on it. Cross-file
 # `needs` references are not resolved between separate sub-Helmfiles.
 helmfiles:
+  - datastore/helmfile.d/*.yaml
   - auxiliary/helmfile.d/*.yaml
   - core/helmfile.d/*.yaml
 

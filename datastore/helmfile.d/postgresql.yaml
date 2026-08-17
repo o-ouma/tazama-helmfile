@@ -1,4 +1,4 @@
-# helmfile.d/postgresql-values.yaml
+# helmfile.d/postgresql.yaml
 repositories:
   - name: postgresql
     url: https://groundhog2k.github.io/helm-charts/
