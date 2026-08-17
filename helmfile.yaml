@@ -29,7 +29,11 @@ helmDefaults:
 helmfiles:
   - datastore/helmfile.d/*.yaml
   - auxiliary/helmfile.d/*.yaml
-  - core/helmfile.d/*.yaml
+  - core/helmfile.d/admin-service.yaml
+  - core/helmfile.d/auth-service.yaml
+  - core/helmfile.d/tms-service.yaml
+
+#  - core/helmfile.d/*.yaml
 
 #  - helmfile.d/cert-manager.yaml
 #  - helmfile.d/nginx-ingress.yaml
